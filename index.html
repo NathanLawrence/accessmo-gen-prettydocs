@@ -21,6 +21,12 @@
 
 	<div id="column-listing">
 		<h2>Column Enumeration</h2>
+		<table class="table table-bordered table-striped" id="column-table" ng-controller="ColumnController">
+			<thead><tr><td>Table Name</td><td>Column Name</td><td>Type</td><td>Description</td></tr></thead>
+			<tr ng-repeat="column in columns | orderBy:'table_name'" >
+			<td>{{column.table_name}}</td><td>{{column.column_name}}</td><td>{{column.data_type}}</td><td>{{column.description}}</td>
+			</tr>
+		</table>
 	</div>
 
 	</div>
