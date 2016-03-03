@@ -1,0 +1,1640 @@
+[
+  {
+    "table_name": "assembly",
+    "column_name": "id",
+    "data_type": "integer",
+    "character_maximum_length": "",
+    "is_nullable": "NO",
+    "ordinal_position": "1",
+    "description": "Primary key. Also the general assembly number."
+  },
+  {
+    "table_name": "assembly",
+    "column_name": "name",
+    "data_type": "character varying",
+    "character_maximum_length": "255",
+    "is_nullable": "NO",
+    "ordinal_position": "2",
+    "description": "E.g., \"88th General Assembly\""
+  },
+  {
+    "table_name": "assembly",
+    "column_name": "created_date",
+    "data_type": "timestamp without time zone",
+    "character_maximum_length": "",
+    "is_nullable": "NO",
+    "ordinal_position": "3",
+    "description": "Date and time the record was inserted into the database."
+  },
+  {
+    "table_name": "assembly",
+    "column_name": "start_year",
+    "data_type": "integer",
+    "character_maximum_length": "",
+    "is_nullable": "NO",
+    "ordinal_position": "4",
+    "description": "Four digit year of the first day of the first session of the general assembly. This should be the year after the general election in which members of this assembly were elected."
+  },
+  {
+    "table_name": "assembly",
+    "column_name": "end_year",
+    "data_type": "integer",
+    "character_maximum_length": "",
+    "is_nullable": "NO",
+    "ordinal_position": "5",
+    "description": "Four digit year of the last day the last session of the general assembly."
+  },
+  {
+    "table_name": "assembly_member",
+    "column_name": "id",
+    "data_type": "integer",
+    "character_maximum_length": "",
+    "is_nullable": "NO",
+    "ordinal_position": "1",
+    "description": "Primary key."
+  },
+  {
+    "table_name": "assembly_member",
+    "column_name": "assembly_id",
+    "data_type": "integer",
+    "character_maximum_length": "",
+    "is_nullable": "NO",
+    "ordinal_position": "2",
+    "description": "Foreign key referencing an assembly in which the member served."
+  },
+  {
+    "table_name": "assembly_member",
+    "column_name": "person_id",
+    "data_type": "integer",
+    "character_maximum_length": "",
+    "is_nullable": "NO",
+    "ordinal_position": "3",
+    "description": "Foreign key referencing the distinct person who was the assembly Assembly_Member."
+  },
+  {
+    "table_name": "assembly_member",
+    "column_name": "chamber_id",
+    "data_type": "character varying",
+    "character_maximum_length": "1",
+    "is_nullable": "NO",
+    "ordinal_position": "4",
+    "description": "Foreign key referencing the chamber in which the member served."
+  },
+  {
+    "table_name": "assembly_member",
+    "column_name": "party_id",
+    "data_type": "character varying",
+    "character_maximum_length": "1",
+    "is_nullable": "YES",
+    "ordinal_position": "5",
+    "description": "The party which the member caucused with during the assembly."
+  },
+  {
+    "table_name": "assembly_member",
+    "column_name": "district",
+    "data_type": "integer",
+    "character_maximum_length": "",
+    "is_nullable": "NO",
+    "ordinal_position": "6",
+    "description": "Foreign key referencing the district which the assembly member represented."
+  },
+  {
+    "table_name": "assembly_member",
+    "column_name": "counties",
+    "data_type": "character varying",
+    "character_maximum_length": "255",
+    "is_nullable": "YES",
+    "ordinal_position": "7",
+    "description": "The counties which the assembly member represented."
+  },
+  {
+    "table_name": "assembly_member",
+    "column_name": "race_candidate_id",
+    "data_type": "integer",
+    "character_maximum_length": "",
+    "is_nullable": "YES",
+    "ordinal_position": "8",
+    "description": "Foreign key referencing the candidacy in the race (if available) in which the member was elected to the assembly."
+  },
+  {
+    "table_name": "assembly_member",
+    "column_name": "created_date",
+    "data_type": "timestamp without time zone",
+    "character_maximum_length": "",
+    "is_nullable": "NO",
+    "ordinal_position": "9",
+    "description": "Date and time the record was inserted into the database."
+  },
+  {
+    "table_name": "bill",
+    "column_name": "id",
+    "data_type": "integer",
+    "character_maximum_length": "",
+    "is_nullable": "NO",
+    "ordinal_position": "1",
+    "description": "Primary key."
+  },
+  {
+    "table_name": "bill",
+    "column_name": "session_id",
+    "data_type": "integer",
+    "character_maximum_length": "",
+    "is_nullable": "NO",
+    "ordinal_position": "2",
+    "description": "Foreign key referencing the session in which the bill was introduced."
+  },
+  {
+    "table_name": "bill",
+    "column_name": "bill_type_id",
+    "data_type": "character varying",
+    "character_maximum_length": "255",
+    "is_nullable": "NO",
+    "ordinal_position": "3",
+    "description": "Foreign key referencing the type of bill (e.g., \"HB\", \"SJB\")."
+  },
+  {
+    "table_name": "bill",
+    "column_name": "number",
+    "data_type": "integer",
+    "character_maximum_length": "",
+    "is_nullable": "NO",
+    "ordinal_position": "4",
+    "description": "Bill number describing the order in which it was introduced for the given type and session."
+  },
+  {
+    "table_name": "bill",
+    "column_name": "bill_string",
+    "data_type": "character varying",
+    "character_maximum_length": "255",
+    "is_nullable": "YES",
+    "ordinal_position": "5",
+    "description": "Full name of bill, including type and number."
+  },
+  {
+    "table_name": "bill",
+    "column_name": "title",
+    "data_type": "character varying",
+    "character_maximum_length": "255",
+    "is_nullable": "YES",
+    "ordinal_position": "6",
+    "description": "Title of the bill."
+  },
+  {
+    "table_name": "bill",
+    "column_name": "description",
+    "data_type": "text",
+    "character_maximum_length": "",
+    "is_nullable": "YES",
+    "ordinal_position": "7",
+    "description": "Description of the bill."
+  },
+  {
+    "table_name": "bill",
+    "column_name": "lr_number",
+    "data_type": "character varying",
+    "character_maximum_length": "255",
+    "is_nullable": "NO",
+    "ordinal_position": "8",
+    "description": "Legislative research number???"
+  },
+  {
+    "table_name": "bill",
+    "column_name": "sponsor_string",
+    "data_type": "character varying",
+    "character_maximum_length": "255",
+    "is_nullable": "YES",
+    "ordinal_position": "9",
+    "description": "Name of the bill sponsor, as it appears on the House or Senate clerk website."
+  },
+  {
+    "table_name": "bill",
+    "column_name": "co_sponsor_string",
+    "data_type": "character varying",
+    "character_maximum_length": "255",
+    "is_nullable": "YES",
+    "ordinal_position": "10",
+    "description": "Text describing the names of co-sponsors, as it appears on the House or Senate clerk website."
+  },
+  {
+    "table_name": "bill",
+    "column_name": "co_sponsor_link",
+    "data_type": "character varying",
+    "character_maximum_length": "255",
+    "is_nullable": "YES",
+    "ordinal_position": "11",
+    "description": "URL linking to the list of co-sponsors of the bill."
+  },
+  {
+    "table_name": "bill",
+    "column_name": "committee_id",
+    "data_type": "integer",
+    "character_maximum_length": "",
+    "is_nullable": "YES",
+    "ordinal_position": "12",
+    "description": "Foreign key referencing the committee to which the bill was (most recently?) assigned."
+  },
+  {
+    "table_name": "bill",
+    "column_name": "effective_date",
+    "data_type": "character varying",
+    "character_maximum_length": "255",
+    "is_nullable": "NO",
+    "ordinal_position": "13",
+    "description": "Date on which the bill would become effective."
+  },
+  {
+    "table_name": "bill",
+    "column_name": "source_doc_id",
+    "data_type": "integer",
+    "character_maximum_length": "",
+    "is_nullable": "YES",
+    "ordinal_position": "14",
+    "description": "Foreign key referencing the House or Senate clerk bill details page."
+  },
+  {
+    "table_name": "bill",
+    "column_name": "created_date",
+    "data_type": "timestamp without time zone",
+    "character_maximum_length": "",
+    "is_nullable": "NO",
+    "ordinal_position": "15",
+    "description": "Date and time the record was inserted into the database."
+  },
+  {
+    "table_name": "bill",
+    "column_name": "combined_with",
+    "data_type": "character varying",
+    "character_maximum_length": "255",
+    "is_nullable": "YES",
+    "ordinal_position": "16",
+    "description": "None"
+  },
+  {
+    "table_name": "bill",
+    "column_name": "stricken_from_calendar",
+    "data_type": "boolean",
+    "character_maximum_length": "",
+    "is_nullable": "NO",
+    "ordinal_position": "17",
+    "description": "None"
+  },
+  {
+    "table_name": "bill_action",
+    "column_name": "id",
+    "data_type": "integer",
+    "character_maximum_length": "",
+    "is_nullable": "NO",
+    "ordinal_position": "1",
+    "description": "Primary key."
+  },
+  {
+    "table_name": "bill_action",
+    "column_name": "bill_id",
+    "data_type": "integer",
+    "character_maximum_length": "",
+    "is_nullable": "NO",
+    "ordinal_position": "2",
+    "description": "Foreign key referencing the bill acted upon."
+  },
+  {
+    "table_name": "bill_action",
+    "column_name": "action_date",
+    "data_type": "date",
+    "character_maximum_length": "",
+    "is_nullable": "NO",
+    "ordinal_position": "3",
+    "description": "Date of legislative action on the bill."
+  },
+  {
+    "table_name": "bill_action",
+    "column_name": "order",
+    "data_type": "integer",
+    "character_maximum_length": "",
+    "is_nullable": "NO",
+    "ordinal_position": "4",
+    "description": "Order in which the action appeared on the source doc."
+  },
+  {
+    "table_name": "bill_action",
+    "column_name": "description",
+    "data_type": "text",
+    "character_maximum_length": "",
+    "is_nullable": "NO",
+    "ordinal_position": "5",
+    "description": "Full description of the legislative action."
+  },
+  {
+    "table_name": "bill_action",
+    "column_name": "description_link",
+    "data_type": "character varying",
+    "character_maximum_length": "255",
+    "is_nullable": "YES",
+    "ordinal_position": "6",
+    "description": "Where available, URL linking to the journal where the legislative action was described."
+  },
+  {
+    "table_name": "bill_action",
+    "column_name": "aye_count",
+    "data_type": "integer",
+    "character_maximum_length": "",
+    "is_nullable": "YES",
+    "ordinal_position": "7",
+    "description": "Where available for voting actions, the number of legislators who voted \"aye\", as it appears in the bill action description."
+  },
+  {
+    "table_name": "bill_action",
+    "column_name": "no_count",
+    "data_type": "integer",
+    "character_maximum_length": "",
+    "is_nullable": "YES",
+    "ordinal_position": "8",
+    "description": "Where available for voting actions, the number of legislators who voted \"no\", as it appears in the bill action description."
+  },
+  {
+    "table_name": "bill_action",
+    "column_name": "present_count",
+    "data_type": "integer",
+    "character_maximum_length": "",
+    "is_nullable": "YES",
+    "ordinal_position": "9",
+    "description": "Where available for voting actions, the number of legislators who voted \"present\", as it appears in the bill action description."
+  },
+  {
+    "table_name": "bill_action",
+    "column_name": "source_doc_id",
+    "data_type": "integer",
+    "character_maximum_length": "",
+    "is_nullable": "NO",
+    "ordinal_position": "10",
+    "description": "Foreign key referencing the action page of the bill"
+  },
+  {
+    "table_name": "bill_action",
+    "column_name": "created_date",
+    "data_type": "timestamp without time zone",
+    "character_maximum_length": "",
+    "is_nullable": "NO",
+    "ordinal_position": "11",
+    "description": "Date and time the record was inserted into the database."
+  },
+  {
+    "table_name": "bill_action_journal_page",
+    "column_name": "id",
+    "data_type": "integer",
+    "character_maximum_length": "",
+    "is_nullable": "NO",
+    "ordinal_position": "1",
+    "description": "Primary key."
+  },
+  {
+    "table_name": "bill_action_journal_page",
+    "column_name": "bill_action_id",
+    "data_type": "integer",
+    "character_maximum_length": "",
+    "is_nullable": "NO",
+    "ordinal_position": "2",
+    "description": "Foreign key referencing the bill action."
+  },
+  {
+    "table_name": "bill_action_journal_page",
+    "column_name": "chamber_id",
+    "data_type": "character varying",
+    "character_maximum_length": "1",
+    "is_nullable": "YES",
+    "ordinal_position": "3",
+    "description": "Foreign key referencing the chamber to which the journal belongs."
+  },
+  {
+    "table_name": "bill_action_journal_page",
+    "column_name": "start_page",
+    "data_type": "integer",
+    "character_maximum_length": "",
+    "is_nullable": "NO",
+    "ordinal_position": "4",
+    "description": "Page on which the description of the bill action starts in the legislative journal."
+  },
+  {
+    "table_name": "bill_action_journal_page",
+    "column_name": "end_page",
+    "data_type": "integer",
+    "character_maximum_length": "",
+    "is_nullable": "NO",
+    "ordinal_position": "5",
+    "description": "Page on which the description of the bill action ends in the legislative journal."
+  },
+  {
+    "table_name": "bill_action_journal_page",
+    "column_name": "journal_link",
+    "data_type": "character varying",
+    "character_maximum_length": "255",
+    "is_nullable": "YES",
+    "ordinal_position": "6",
+    "description": "Where available, URL linking to the journal where the legislative action was described."
+  },
+  {
+    "table_name": "bill_action_journal_page",
+    "column_name": "created_date",
+    "data_type": "timestamp without time zone",
+    "character_maximum_length": "",
+    "is_nullable": "NO",
+    "ordinal_position": "7",
+    "description": "Date and time the record was inserted into the database."
+  },
+  {
+    "table_name": "bill_sponsor",
+    "column_name": "id",
+    "data_type": "integer",
+    "character_maximum_length": "",
+    "is_nullable": "NO",
+    "ordinal_position": "1",
+    "description": "Primary key."
+  },
+  {
+    "table_name": "bill_sponsor",
+    "column_name": "bill_id",
+    "data_type": "integer",
+    "character_maximum_length": "",
+    "is_nullable": "NO",
+    "ordinal_position": "2",
+    "description": "Foreign key referencing the bill sponsored by the member."
+  },
+  {
+    "table_name": "bill_sponsor",
+    "column_name": "sponsor_type",
+    "data_type": "character varying",
+    "character_maximum_length": "1",
+    "is_nullable": "NO",
+    "ordinal_position": "3",
+    "description": "S = Sponsor, C = CoSponsor"
+  },
+  {
+    "table_name": "bill_sponsor",
+    "column_name": "sponsor_id",
+    "data_type": "integer",
+    "character_maximum_length": "",
+    "is_nullable": "NO",
+    "ordinal_position": "4",
+    "description": "Foreign key referencing the assembly member that sponsored the bill."
+  },
+  {
+    "table_name": "bill_sponsor",
+    "column_name": "raw_name",
+    "data_type": "character varying",
+    "character_maximum_length": "255",
+    "is_nullable": "NO",
+    "ordinal_position": "5",
+    "description": "String that contains the name of the bill sponsor as it appears in the source doc."
+  },
+  {
+    "table_name": "bill_sponsor",
+    "column_name": "created_date",
+    "data_type": "timestamp without time zone",
+    "character_maximum_length": "",
+    "is_nullable": "NO",
+    "ordinal_position": "6",
+    "description": "Date and time the record was inserted into the database."
+  },
+  {
+    "table_name": "bill_summary",
+    "column_name": "id",
+    "data_type": "integer",
+    "character_maximum_length": "",
+    "is_nullable": "NO",
+    "ordinal_position": "1",
+    "description": "Primary key."
+  },
+  {
+    "table_name": "bill_summary",
+    "column_name": "bill_id",
+    "data_type": "integer",
+    "character_maximum_length": "",
+    "is_nullable": "NO",
+    "ordinal_position": "2",
+    "description": "None"
+  },
+  {
+    "table_name": "bill_summary",
+    "column_name": "description",
+    "data_type": "character varying",
+    "character_maximum_length": "255",
+    "is_nullable": "NO",
+    "ordinal_position": "3",
+    "description": "None"
+  },
+  {
+    "table_name": "bill_summary",
+    "column_name": "order",
+    "data_type": "integer",
+    "character_maximum_length": "",
+    "is_nullable": "NO",
+    "ordinal_position": "4",
+    "description": "None"
+  },
+  {
+    "table_name": "bill_summary",
+    "column_name": "summary",
+    "data_type": "text",
+    "character_maximum_length": "",
+    "is_nullable": "NO",
+    "ordinal_position": "5",
+    "description": "None"
+  },
+  {
+    "table_name": "bill_summary",
+    "column_name": "source_doc_id",
+    "data_type": "integer",
+    "character_maximum_length": "",
+    "is_nullable": "NO",
+    "ordinal_position": "6",
+    "description": "None"
+  },
+  {
+    "table_name": "bill_text",
+    "column_name": "id",
+    "data_type": "integer",
+    "character_maximum_length": "",
+    "is_nullable": "NO",
+    "ordinal_position": "1",
+    "description": "Primary key."
+  },
+  {
+    "table_name": "bill_text",
+    "column_name": "bill_id",
+    "data_type": "integer",
+    "character_maximum_length": "",
+    "is_nullable": "NO",
+    "ordinal_position": "2",
+    "description": "None"
+  },
+  {
+    "table_name": "bill_text",
+    "column_name": "description",
+    "data_type": "character varying",
+    "character_maximum_length": "255",
+    "is_nullable": "NO",
+    "ordinal_position": "3",
+    "description": "None"
+  },
+  {
+    "table_name": "bill_text",
+    "column_name": "order",
+    "data_type": "integer",
+    "character_maximum_length": "",
+    "is_nullable": "NO",
+    "ordinal_position": "4",
+    "description": "None"
+  },
+  {
+    "table_name": "bill_text",
+    "column_name": "text",
+    "data_type": "text",
+    "character_maximum_length": "",
+    "is_nullable": "NO",
+    "ordinal_position": "5",
+    "description": "None"
+  },
+  {
+    "table_name": "bill_text",
+    "column_name": "source_doc_id",
+    "data_type": "integer",
+    "character_maximum_length": "",
+    "is_nullable": "NO",
+    "ordinal_position": "6",
+    "description": "None"
+  },
+  {
+    "table_name": "bill_topic",
+    "column_name": "id",
+    "data_type": "integer",
+    "character_maximum_length": "",
+    "is_nullable": "NO",
+    "ordinal_position": "1",
+    "description": "Primary key."
+  },
+  {
+    "table_name": "bill_topic",
+    "column_name": "bill_id",
+    "data_type": "integer",
+    "character_maximum_length": "",
+    "is_nullable": "NO",
+    "ordinal_position": "2",
+    "description": "None"
+  },
+  {
+    "table_name": "bill_topic",
+    "column_name": "topic",
+    "data_type": "character varying",
+    "character_maximum_length": "255",
+    "is_nullable": "NO",
+    "ordinal_position": "3",
+    "description": "None"
+  },
+  {
+    "table_name": "bill_topic",
+    "column_name": "created_date",
+    "data_type": "timestamp without time zone",
+    "character_maximum_length": "",
+    "is_nullable": "NO",
+    "ordinal_position": "4",
+    "description": "Date and time the record was inserted into the database."
+  },
+  {
+    "table_name": "bill_type",
+    "column_name": "id",
+    "data_type": "character varying",
+    "character_maximum_length": "255",
+    "is_nullable": "NO",
+    "ordinal_position": "1",
+    "description": "Primary key (e.g., \"HB\", \"SJB\")."
+  },
+  {
+    "table_name": "bill_type",
+    "column_name": "name",
+    "data_type": "character varying",
+    "character_maximum_length": "255",
+    "is_nullable": "NO",
+    "ordinal_position": "2",
+    "description": "Full name of the bill type (e.g., \"House Bill\", \"Senate Joint Resolution\")."
+  },
+  {
+    "table_name": "bill_type",
+    "column_name": "chamber_id",
+    "data_type": "character varying",
+    "character_maximum_length": "1",
+    "is_nullable": "YES",
+    "ordinal_position": "3",
+    "description": "Foreign key referencing the chamber in which bills of this type originate."
+  },
+  {
+    "table_name": "bill_type",
+    "column_name": "created_date",
+    "data_type": "timestamp without time zone",
+    "character_maximum_length": "",
+    "is_nullable": "NO",
+    "ordinal_position": "4",
+    "description": "Date and time the record was inserted into the database."
+  },
+  {
+    "table_name": "chamber",
+    "column_name": "id",
+    "data_type": "character varying",
+    "character_maximum_length": "1",
+    "is_nullable": "NO",
+    "ordinal_position": "1",
+    "description": "Primary key. Either \"H\" or \"S\"."
+  },
+  {
+    "table_name": "chamber",
+    "column_name": "name",
+    "data_type": "character varying",
+    "character_maximum_length": "255",
+    "is_nullable": "NO",
+    "ordinal_position": "2",
+    "description": "Either \"House\" or \"Senate\"."
+  },
+  {
+    "table_name": "chamber",
+    "column_name": "title",
+    "data_type": "character varying",
+    "character_maximum_length": "255",
+    "is_nullable": "NO",
+    "ordinal_position": "3",
+    "description": "Either \"Rep.\" or \"Sen.\"."
+  },
+  {
+    "table_name": "chamber",
+    "column_name": "full_title",
+    "data_type": "character varying",
+    "character_maximum_length": "255",
+    "is_nullable": "NO",
+    "ordinal_position": "4",
+    "description": "Either \"Representative\" or \"Senator\"."
+  },
+  {
+    "table_name": "chamber",
+    "column_name": "created_date",
+    "data_type": "timestamp without time zone",
+    "character_maximum_length": "",
+    "is_nullable": "NO",
+    "ordinal_position": "5",
+    "description": "Date and time the record was inserted into the database."
+  },
+  {
+    "table_name": "committee",
+    "column_name": "id",
+    "data_type": "integer",
+    "character_maximum_length": "",
+    "is_nullable": "NO",
+    "ordinal_position": "1",
+    "description": "Primary key."
+  },
+  {
+    "table_name": "committee",
+    "column_name": "chamber_id",
+    "data_type": "character varying",
+    "character_maximum_length": "1",
+    "is_nullable": "NO",
+    "ordinal_position": "2",
+    "description": "Foreign key referencing the legislative chamber of the committee."
+  },
+  {
+    "table_name": "committee",
+    "column_name": "name",
+    "data_type": "character varying",
+    "character_maximum_length": "255",
+    "is_nullable": "NO",
+    "ordinal_position": "3",
+    "description": "Name of the committee."
+  },
+  {
+    "table_name": "committee",
+    "column_name": "created_date",
+    "data_type": "timestamp without time zone",
+    "character_maximum_length": "",
+    "is_nullable": "NO",
+    "ordinal_position": "4",
+    "description": "Date and time the record was inserted into the database."
+  },
+  {
+    "table_name": "committee_member",
+    "column_name": "id",
+    "data_type": "integer",
+    "character_maximum_length": "",
+    "is_nullable": "NO",
+    "ordinal_position": "1",
+    "description": "Primary key."
+  },
+  {
+    "table_name": "committee_member",
+    "column_name": "committee_id",
+    "data_type": "integer",
+    "character_maximum_length": "",
+    "is_nullable": "NO",
+    "ordinal_position": "2",
+    "description": "Foreign key referencing the committee of which the legislator is a member."
+  },
+  {
+    "table_name": "committee_member",
+    "column_name": "member_id",
+    "data_type": "integer",
+    "character_maximum_length": "",
+    "is_nullable": "NO",
+    "ordinal_position": "3",
+    "description": "Foreign key referencing the assembly member that is on the committee."
+  },
+  {
+    "table_name": "committee_member",
+    "column_name": "created_date",
+    "data_type": "timestamp without time zone",
+    "character_maximum_length": "",
+    "is_nullable": "NO",
+    "ordinal_position": "4",
+    "description": "Date and time the record was inserted into the database."
+  },
+  {
+    "table_name": "diminutive_name",
+    "column_name": "id",
+    "data_type": "integer",
+    "character_maximum_length": "",
+    "is_nullable": "NO",
+    "ordinal_position": "1",
+    "description": "Primary key."
+  },
+  {
+    "table_name": "diminutive_name",
+    "column_name": "formal_name_id",
+    "data_type": "integer",
+    "character_maximum_length": "",
+    "is_nullable": "NO",
+    "ordinal_position": "2",
+    "description": "Foreign key referencing the formal version of the diminutive name."
+  },
+  {
+    "table_name": "diminutive_name",
+    "column_name": "name",
+    "data_type": "character varying",
+    "character_maximum_length": "255",
+    "is_nullable": "NO",
+    "ordinal_position": "3",
+    "description": "Diminutive version of the formal name."
+  },
+  {
+    "table_name": "diminutive_name",
+    "column_name": "sex",
+    "data_type": "character varying",
+    "character_maximum_length": "1",
+    "is_nullable": "NO",
+    "ordinal_position": "4",
+    "description": "M = Male, F = Female, N = Neutral"
+  },
+  {
+    "table_name": "district_vacancy",
+    "column_name": "id",
+    "data_type": "integer",
+    "character_maximum_length": "",
+    "is_nullable": "NO",
+    "ordinal_position": "1",
+    "description": "Primary key."
+  },
+  {
+    "table_name": "district_vacancy",
+    "column_name": "session_id",
+    "data_type": "integer",
+    "character_maximum_length": "",
+    "is_nullable": "NO",
+    "ordinal_position": "2",
+    "description": "Foreign key referencing the session in which the district was vacant."
+  },
+  {
+    "table_name": "district_vacancy",
+    "column_name": "chamber_id",
+    "data_type": "character varying",
+    "character_maximum_length": "1",
+    "is_nullable": "NO",
+    "ordinal_position": "3",
+    "description": "Foreign key referencing the chamber in which the district was vacant."
+  },
+  {
+    "table_name": "district_vacancy",
+    "column_name": "district",
+    "data_type": "character varying",
+    "character_maximum_length": "255",
+    "is_nullable": "NO",
+    "ordinal_position": "4",
+    "description": "The district that was vacant in chamber and session."
+  },
+  {
+    "table_name": "district_vacancy",
+    "column_name": "created_date",
+    "data_type": "timestamp without time zone",
+    "character_maximum_length": "",
+    "is_nullable": "NO",
+    "ordinal_position": "5",
+    "description": "Date and time the record was inserted into the database."
+  },
+  {
+    "table_name": "election",
+    "column_name": "id",
+    "data_type": "integer",
+    "character_maximum_length": "",
+    "is_nullable": "NO",
+    "ordinal_position": "1",
+    "description": "Primary key."
+  },
+  {
+    "table_name": "election",
+    "column_name": "name",
+    "data_type": "character varying",
+    "character_maximum_length": "255",
+    "is_nullable": "NO",
+    "ordinal_position": "2",
+    "description": "Name of the election as it appears in the SoS election results (e.g., \"General Election - November 4, 2014\")."
+  },
+  {
+    "table_name": "election",
+    "column_name": "election_date",
+    "data_type": "date",
+    "character_maximum_length": "",
+    "is_nullable": "NO",
+    "ordinal_position": "3",
+    "description": "Date that the election was held."
+  },
+  {
+    "table_name": "election",
+    "column_name": "election_type_id",
+    "data_type": "character varying",
+    "character_maximum_length": "1",
+    "is_nullable": "NO",
+    "ordinal_position": "4",
+    "description": "Foreign key referencing the type of election (General, Primary or Special)."
+  },
+  {
+    "table_name": "election",
+    "column_name": "file_name",
+    "data_type": "character varying",
+    "character_maximum_length": "255",
+    "is_nullable": "YES",
+    "ordinal_position": "5",
+    "description": "File path and name of a local copy of the text file of the election results."
+  },
+  {
+    "table_name": "election",
+    "column_name": "assembly_id",
+    "data_type": "integer",
+    "character_maximum_length": "",
+    "is_nullable": "YES",
+    "ordinal_position": "6",
+    "description": "Foreign key field referencing the assembly to which the legislative race candidates were elected."
+  },
+  {
+    "table_name": "election",
+    "column_name": "created_date",
+    "data_type": "timestamp without time zone",
+    "character_maximum_length": "",
+    "is_nullable": "NO",
+    "ordinal_position": "7",
+    "description": "Date and time the record was inserted into the database."
+  },
+  {
+    "table_name": "election_type",
+    "column_name": "id",
+    "data_type": "character varying",
+    "character_maximum_length": "1",
+    "is_nullable": "NO",
+    "ordinal_position": "1",
+    "description": "Primary key. Either \"G\", \"S\" or \"P\"."
+  },
+  {
+    "table_name": "election_type",
+    "column_name": "name",
+    "data_type": "character varying",
+    "character_maximum_length": "255",
+    "is_nullable": "NO",
+    "ordinal_position": "2",
+    "description": "Either \"General\", \"Special\" or \"Primary\"."
+  },
+  {
+    "table_name": "election_type",
+    "column_name": "created_date",
+    "data_type": "timestamp without time zone",
+    "character_maximum_length": "",
+    "is_nullable": "NO",
+    "ordinal_position": "3",
+    "description": "Date and time the record was inserted into the database."
+  },
+  {
+    "table_name": "formal_name",
+    "column_name": "id",
+    "data_type": "integer",
+    "character_maximum_length": "",
+    "is_nullable": "NO",
+    "ordinal_position": "1",
+    "description": "Primary key."
+  },
+  {
+    "table_name": "formal_name",
+    "column_name": "name",
+    "data_type": "character varying",
+    "character_maximum_length": "255",
+    "is_nullable": "NO",
+    "ordinal_position": "2",
+    "description": "Unique formal name that has one or more diminutive versions."
+  },
+  {
+    "table_name": "formal_name",
+    "column_name": "created_date",
+    "data_type": "timestamp without time zone",
+    "character_maximum_length": "",
+    "is_nullable": "NO",
+    "ordinal_position": "3",
+    "description": "Date and time the record was inserted into the database."
+  },
+  {
+    "table_name": "member_session_profile",
+    "column_name": "id",
+    "data_type": "integer",
+    "character_maximum_length": "",
+    "is_nullable": "NO",
+    "ordinal_position": "1",
+    "description": "Primary key."
+  },
+  {
+    "table_name": "member_session_profile",
+    "column_name": "assembly_member_id",
+    "data_type": "integer",
+    "character_maximum_length": "",
+    "is_nullable": "NO",
+    "ordinal_position": "2",
+    "description": "Foreign key referencing the assembly member profiled."
+  },
+  {
+    "table_name": "member_session_profile",
+    "column_name": "session_id",
+    "data_type": "integer",
+    "character_maximum_length": "",
+    "is_nullable": "NO",
+    "ordinal_position": "3",
+    "description": "Foreign key referencing the session in which the member was profiled."
+  },
+  {
+    "table_name": "member_session_profile",
+    "column_name": "raw_name",
+    "data_type": "character varying",
+    "character_maximum_length": "255",
+    "is_nullable": "NO",
+    "ordinal_position": "4",
+    "description": "Name of the legislator as it appears on the Legislator Roster page."
+  },
+  {
+    "table_name": "member_session_profile",
+    "column_name": "party_id",
+    "data_type": "character varying",
+    "character_maximum_length": "1",
+    "is_nullable": "YES",
+    "ordinal_position": "5",
+    "description": "None"
+  },
+  {
+    "table_name": "member_session_profile",
+    "column_name": "source_doc_id",
+    "data_type": "integer",
+    "character_maximum_length": "",
+    "is_nullable": "NO",
+    "ordinal_position": "6",
+    "description": "Foreign key representing the House or Senate clerk lawmaker details page."
+  },
+  {
+    "table_name": "member_session_profile",
+    "column_name": "created_date",
+    "data_type": "timestamp without time zone",
+    "character_maximum_length": "",
+    "is_nullable": "NO",
+    "ordinal_position": "7",
+    "description": "Date and time the record was inserted into the database."
+  },
+  {
+    "table_name": "party",
+    "column_name": "id",
+    "data_type": "character varying",
+    "character_maximum_length": "1",
+    "is_nullable": "NO",
+    "ordinal_position": "1",
+    "description": "Primary key."
+  },
+  {
+    "table_name": "party",
+    "column_name": "short_name",
+    "data_type": "character varying",
+    "character_maximum_length": "3",
+    "is_nullable": "NO",
+    "ordinal_position": "2",
+    "description": "Three-character abbreviation of the party name."
+  },
+  {
+    "table_name": "party",
+    "column_name": "name",
+    "data_type": "character varying",
+    "character_maximum_length": "255",
+    "is_nullable": "NO",
+    "ordinal_position": "3",
+    "description": "Current name of the political party."
+  },
+  {
+    "table_name": "party",
+    "column_name": "created_date",
+    "data_type": "timestamp without time zone",
+    "character_maximum_length": "",
+    "is_nullable": "NO",
+    "ordinal_position": "4",
+    "description": "Date and time the record was inserted into the database."
+  },
+  {
+    "table_name": "person",
+    "column_name": "id",
+    "data_type": "integer",
+    "character_maximum_length": "",
+    "is_nullable": "NO",
+    "ordinal_position": "1",
+    "description": "Primary key."
+  },
+  {
+    "table_name": "person",
+    "column_name": "first_name",
+    "data_type": "character varying",
+    "character_maximum_length": "255",
+    "is_nullable": "NO",
+    "ordinal_position": "2",
+    "description": "Full first name or first initial."
+  },
+  {
+    "table_name": "person",
+    "column_name": "middle_name",
+    "data_type": "character varying",
+    "character_maximum_length": "255",
+    "is_nullable": "YES",
+    "ordinal_position": "3",
+    "description": "Full middle name or initial."
+  },
+  {
+    "table_name": "person",
+    "column_name": "last_name",
+    "data_type": "character varying",
+    "character_maximum_length": "255",
+    "is_nullable": "NO",
+    "ordinal_position": "4",
+    "description": "Full last name."
+  },
+  {
+    "table_name": "person",
+    "column_name": "name_suffix",
+    "data_type": "character varying",
+    "character_maximum_length": "255",
+    "is_nullable": "YES",
+    "ordinal_position": "5",
+    "description": "E.g., \"Sr\", \"Jr\" or \"III\"."
+  },
+  {
+    "table_name": "person",
+    "column_name": "nickname",
+    "data_type": "character varying",
+    "character_maximum_length": "255",
+    "is_nullable": "YES",
+    "ordinal_position": "6",
+    "description": "Alternate name found in (...), as in \"Jack (Skip) Johnson\"."
+  },
+  {
+    "table_name": "person",
+    "column_name": "created_date",
+    "data_type": "timestamp without time zone",
+    "character_maximum_length": "",
+    "is_nullable": "NO",
+    "ordinal_position": "7",
+    "description": "Date and time the record was inserted into the database."
+  },
+  {
+    "table_name": "person_name",
+    "column_name": "id",
+    "data_type": "integer",
+    "character_maximum_length": "",
+    "is_nullable": "NO",
+    "ordinal_position": "1",
+    "description": "Primary key."
+  },
+  {
+    "table_name": "person_name",
+    "column_name": "person_id",
+    "data_type": "integer",
+    "character_maximum_length": "",
+    "is_nullable": "NO",
+    "ordinal_position": "2",
+    "description": "Foreign key referencing most likely distinct person to which the name belongs."
+  },
+  {
+    "table_name": "person_name",
+    "column_name": "first_name",
+    "data_type": "character varying",
+    "character_maximum_length": "255",
+    "is_nullable": "NO",
+    "ordinal_position": "3",
+    "description": "Full first name or first initial."
+  },
+  {
+    "table_name": "person_name",
+    "column_name": "middle_name",
+    "data_type": "character varying",
+    "character_maximum_length": "255",
+    "is_nullable": "NO",
+    "ordinal_position": "4",
+    "description": "Full middle name or initial."
+  },
+  {
+    "table_name": "person_name",
+    "column_name": "last_name",
+    "data_type": "character varying",
+    "character_maximum_length": "255",
+    "is_nullable": "NO",
+    "ordinal_position": "5",
+    "description": "Full last name."
+  },
+  {
+    "table_name": "person_name",
+    "column_name": "name_suffix",
+    "data_type": "character varying",
+    "character_maximum_length": "255",
+    "is_nullable": "NO",
+    "ordinal_position": "6",
+    "description": "E.g., \"Sr\", \"Jr\" or \"III\"."
+  },
+  {
+    "table_name": "person_name",
+    "column_name": "nickname",
+    "data_type": "character varying",
+    "character_maximum_length": "255",
+    "is_nullable": "NO",
+    "ordinal_position": "7",
+    "description": "Alternate name found in (...), as in \"Jack (Skip) Johnson\"."
+  },
+  {
+    "table_name": "person_name",
+    "column_name": "created_date",
+    "data_type": "timestamp without time zone",
+    "character_maximum_length": "",
+    "is_nullable": "NO",
+    "ordinal_position": "8",
+    "description": "Date and time the record was inserted into the database."
+  },
+  {
+    "table_name": "race",
+    "column_name": "id",
+    "data_type": "integer",
+    "character_maximum_length": "",
+    "is_nullable": "NO",
+    "ordinal_position": "1",
+    "description": "Primary key."
+  },
+  {
+    "table_name": "race",
+    "column_name": "election_id",
+    "data_type": "integer",
+    "character_maximum_length": "",
+    "is_nullable": "NO",
+    "ordinal_position": "2",
+    "description": "Foreign key referencing the election when the race was decided."
+  },
+  {
+    "table_name": "race",
+    "column_name": "race_type_id",
+    "data_type": "integer",
+    "character_maximum_length": "",
+    "is_nullable": "NO",
+    "ordinal_position": "3",
+    "description": "Foreign key referencing the type of race (e.g., \"State Senator\")."
+  },
+  {
+    "table_name": "race",
+    "column_name": "district",
+    "data_type": "integer",
+    "character_maximum_length": "",
+    "is_nullable": "YES",
+    "ordinal_position": "4",
+    "description": "Number representing the legislative district for which candidates are running."
+  },
+  {
+    "table_name": "race",
+    "column_name": "party_id",
+    "data_type": "character varying",
+    "character_maximum_length": "1",
+    "is_nullable": "YES",
+    "ordinal_position": "5",
+    "description": "For Primary races, foreign key referencing the political party for which the candidates are to be nominee."
+  },
+  {
+    "table_name": "race",
+    "column_name": "unexpired",
+    "data_type": "boolean",
+    "character_maximum_length": "",
+    "is_nullable": "YES",
+    "ordinal_position": "6",
+    "description": "Not term-limited???"
+  },
+  {
+    "table_name": "race",
+    "column_name": "num_precincts",
+    "data_type": "integer",
+    "character_maximum_length": "",
+    "is_nullable": "YES",
+    "ordinal_position": "7",
+    "description": "Number precincts in which voters are eligible to vote in the race."
+  },
+  {
+    "table_name": "race",
+    "column_name": "total_votes",
+    "data_type": "integer",
+    "character_maximum_length": "",
+    "is_nullable": "NO",
+    "ordinal_position": "8",
+    "description": "Number of votes cast in the race."
+  },
+  {
+    "table_name": "race",
+    "column_name": "created_date",
+    "data_type": "timestamp without time zone",
+    "character_maximum_length": "",
+    "is_nullable": "NO",
+    "ordinal_position": "9",
+    "description": "Date and time the record was inserted into the database."
+  },
+  {
+    "table_name": "race_candidate",
+    "column_name": "id",
+    "data_type": "integer",
+    "character_maximum_length": "",
+    "is_nullable": "NO",
+    "ordinal_position": "1",
+    "description": "Primary key."
+  },
+  {
+    "table_name": "race_candidate",
+    "column_name": "race_id",
+    "data_type": "integer",
+    "character_maximum_length": "",
+    "is_nullable": "NO",
+    "ordinal_position": "2",
+    "description": "Foreign key referencing the race in which the candidate ran."
+  },
+  {
+    "table_name": "race_candidate",
+    "column_name": "raw_name",
+    "data_type": "character varying",
+    "character_maximum_length": "255",
+    "is_nullable": "NO",
+    "ordinal_position": "3",
+    "description": "Full name of the candidate, as it appeared in the SoS election results."
+  },
+  {
+    "table_name": "race_candidate",
+    "column_name": "person_id",
+    "data_type": "integer",
+    "character_maximum_length": "",
+    "is_nullable": "NO",
+    "ordinal_position": "4",
+    "description": "Foreign key referencing the distinct person representing the candidate."
+  },
+  {
+    "table_name": "race_candidate",
+    "column_name": "party_id",
+    "data_type": "character varying",
+    "character_maximum_length": "1",
+    "is_nullable": "NO",
+    "ordinal_position": "5",
+    "description": "Political party of the candidate, as it appeared in the SoS results."
+  },
+  {
+    "table_name": "race_candidate",
+    "column_name": "votes",
+    "data_type": "integer",
+    "character_maximum_length": "",
+    "is_nullable": "NO",
+    "ordinal_position": "6",
+    "description": "Number of votes cast for the given candidate in the given election."
+  },
+  {
+    "table_name": "race_candidate",
+    "column_name": "pct_votes",
+    "data_type": "real",
+    "character_maximum_length": "",
+    "is_nullable": "NO",
+    "ordinal_position": "7",
+    "description": "Votes cast for the given candidate as a percent of total votes cast in the race."
+  },
+  {
+    "table_name": "race_candidate",
+    "column_name": "rank",
+    "data_type": "integer",
+    "character_maximum_length": "",
+    "is_nullable": "YES",
+    "ordinal_position": "8",
+    "description": "Rank among other candidates in the race based on votes received. Winners are ranked 1."
+  },
+  {
+    "table_name": "race_candidate",
+    "column_name": "created_date",
+    "data_type": "timestamp without time zone",
+    "character_maximum_length": "",
+    "is_nullable": "NO",
+    "ordinal_position": "9",
+    "description": "Date and time the record was inserted into the database."
+  },
+  {
+    "table_name": "race_type",
+    "column_name": "id",
+    "data_type": "integer",
+    "character_maximum_length": "",
+    "is_nullable": "NO",
+    "ordinal_position": "1",
+    "description": "Primary key."
+  },
+  {
+    "table_name": "race_type",
+    "column_name": "name",
+    "data_type": "character varying",
+    "character_maximum_length": "255",
+    "is_nullable": "NO",
+    "ordinal_position": "2",
+    "description": "Name of the office for which candidates are running in a given race (e.g., \"State Senator\"). Also includes \"Constitutional Amendment\" and \"Proposition\"."
+  },
+  {
+    "table_name": "race_type",
+    "column_name": "chamber_id",
+    "data_type": "character varying",
+    "character_maximum_length": "1",
+    "is_nullable": "YES",
+    "ordinal_position": "3",
+    "description": "Foreign key referencing the legislative chamber for which winners of this type of race are elected."
+  },
+  {
+    "table_name": "race_type",
+    "column_name": "created_date",
+    "data_type": "timestamp without time zone",
+    "character_maximum_length": "",
+    "is_nullable": "NO",
+    "ordinal_position": "4",
+    "description": "Date and time the record was inserted into the database."
+  },
+  {
+    "table_name": "session",
+    "column_name": "id",
+    "data_type": "integer",
+    "character_maximum_length": "",
+    "is_nullable": "NO",
+    "ordinal_position": "1",
+    "description": "Primary key."
+  },
+  {
+    "table_name": "session",
+    "column_name": "assembly_id",
+    "data_type": "integer",
+    "character_maximum_length": "",
+    "is_nullable": "NO",
+    "ordinal_position": "2",
+    "description": "Foreign key referencing assembly in which session occured."
+  },
+  {
+    "table_name": "session",
+    "column_name": "year",
+    "data_type": "integer",
+    "character_maximum_length": "",
+    "is_nullable": "NO",
+    "ordinal_position": "3",
+    "description": "Four digit year in which the session occured"
+  },
+  {
+    "table_name": "session",
+    "column_name": "session_type_id",
+    "data_type": "character varying",
+    "character_maximum_length": "1",
+    "is_nullable": "NO",
+    "ordinal_position": "4",
+    "description": "Foreign key referencing the type of session (either \"Regular\" or \"Extraordinary\")."
+  },
+  {
+    "table_name": "session",
+    "column_name": "year_type_ord",
+    "data_type": "integer",
+    "character_maximum_length": "",
+    "is_nullable": "NO",
+    "ordinal_position": "5",
+    "description": "Indicates the order of the session in cases where multiple sessions of the same type occurred in the same year (mostly relevant to Extraordinary sessions)."
+  },
+  {
+    "table_name": "session",
+    "column_name": "name",
+    "data_type": "character varying",
+    "character_maximum_length": "255",
+    "is_nullable": "NO",
+    "ordinal_position": "6",
+    "description": "Name of the session as labeled on the House or Senate clerk website."
+  },
+  {
+    "table_name": "session",
+    "column_name": "created_date",
+    "data_type": "timestamp without time zone",
+    "character_maximum_length": "",
+    "is_nullable": "NO",
+    "ordinal_position": "7",
+    "description": "Date and time the record was inserted into the database."
+  },
+  {
+    "table_name": "session_type",
+    "column_name": "id",
+    "data_type": "character varying",
+    "character_maximum_length": "1",
+    "is_nullable": "NO",
+    "ordinal_position": "1",
+    "description": "Primary key. Either \"R\" or \"E\"."
+  },
+  {
+    "table_name": "session_type",
+    "column_name": "name",
+    "data_type": "character varying",
+    "character_maximum_length": "255",
+    "is_nullable": "NO",
+    "ordinal_position": "2",
+    "description": "Either \"Regular\" or \"Extraordinary\"."
+  },
+  {
+    "table_name": "session_type",
+    "column_name": "created_date",
+    "data_type": "timestamp without time zone",
+    "character_maximum_length": "",
+    "is_nullable": "NO",
+    "ordinal_position": "3",
+    "description": "Date and time the record was inserted into the database."
+  },
+  {
+    "table_name": "source_doc",
+    "column_name": "id",
+    "data_type": "integer",
+    "character_maximum_length": "",
+    "is_nullable": "NO",
+    "ordinal_position": "1",
+    "description": "Primary key."
+  },
+  {
+    "table_name": "source_doc",
+    "column_name": "name",
+    "data_type": "character varying",
+    "character_maximum_length": "255",
+    "is_nullable": "NO",
+    "ordinal_position": "2",
+    "description": "Text labeling the link to the source doc."
+  },
+  {
+    "table_name": "source_doc",
+    "column_name": "session_id",
+    "data_type": "integer",
+    "character_maximum_length": "",
+    "is_nullable": "YES",
+    "ordinal_position": "3",
+    "description": "Foreign key referencing the session under which the source doc was found."
+  },
+  {
+    "table_name": "source_doc",
+    "column_name": "chamber_id",
+    "data_type": "character varying",
+    "character_maximum_length": "1",
+    "is_nullable": "NO",
+    "ordinal_position": "4",
+    "description": "Foreign key referencing the legislative chamber website from which the source doc was collected."
+  },
+  {
+    "table_name": "source_doc",
+    "column_name": "url",
+    "data_type": "character varying",
+    "character_maximum_length": "255",
+    "is_nullable": "NO",
+    "ordinal_position": "5",
+    "description": "Link to the source doc."
+  },
+  {
+    "table_name": "source_doc",
+    "column_name": "scheme",
+    "data_type": "character varying",
+    "character_maximum_length": "255",
+    "is_nullable": "NO",
+    "ordinal_position": "6",
+    "description": "Parsed from the url."
+  },
+  {
+    "table_name": "source_doc",
+    "column_name": "netloc",
+    "data_type": "character varying",
+    "character_maximum_length": "255",
+    "is_nullable": "NO",
+    "ordinal_position": "7",
+    "description": "Parsed from the url."
+  },
+  {
+    "table_name": "source_doc",
+    "column_name": "path",
+    "data_type": "character varying",
+    "character_maximum_length": "255",
+    "is_nullable": "NO",
+    "ordinal_position": "8",
+    "description": "Parsed from the url."
+  },
+  {
+    "table_name": "source_doc",
+    "column_name": "params",
+    "data_type": "character varying",
+    "character_maximum_length": "255",
+    "is_nullable": "YES",
+    "ordinal_position": "9",
+    "description": "Parsed from the url."
+  },
+  {
+    "table_name": "source_doc",
+    "column_name": "query",
+    "data_type": "character varying",
+    "character_maximum_length": "255",
+    "is_nullable": "YES",
+    "ordinal_position": "10",
+    "description": "Parsed from the url."
+  },
+  {
+    "table_name": "source_doc",
+    "column_name": "fragment",
+    "data_type": "character varying",
+    "character_maximum_length": "255",
+    "is_nullable": "YES",
+    "ordinal_position": "11",
+    "description": "Parsed from the url."
+  },
+  {
+    "table_name": "source_doc",
+    "column_name": "file_name",
+    "data_type": "character varying",
+    "character_maximum_length": "255",
+    "is_nullable": "NO",
+    "ordinal_position": "12",
+    "description": "File name and path for local copy of the source doc."
+  },
+  {
+    "table_name": "source_doc",
+    "column_name": "parent_id",
+    "data_type": "integer",
+    "character_maximum_length": "",
+    "is_nullable": "YES",
+    "ordinal_position": "13",
+    "description": "Foreign key referencing the other source doc that includes the link to this source doc"
+  },
+  {
+    "table_name": "source_doc",
+    "column_name": "created_date",
+    "data_type": "timestamp without time zone",
+    "character_maximum_length": "",
+    "is_nullable": "NO",
+    "ordinal_position": "14",
+    "description": "Date and time the record was inserted into the database."
+  }
+]

@@ -1,0 +1,22 @@
+{
+  "name": "accessmo-gen-prettydocs",
+  "version": "0.0.1",
+  "description": "Make shiny pretty docs for the Access Missouri Tables based on James' TSV files.",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "gulp test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NathanLawrence/accessmo-gen-prettydocs.git"
+  },
+  "author": "nathan@nathanlawrence.org",
+  "license": "BSD-2-Clause",
+  "bugs": {
+    "url": "https://github.com/NathanLawrence/accessmo-gen-prettydocs/issues"
+  },
+  "homepage": "https://github.com/NathanLawrence/accessmo-gen-prettydocs#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1"
+  }
+}

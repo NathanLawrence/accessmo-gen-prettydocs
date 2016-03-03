@@ -1,0 +1,147 @@
+[
+  {
+    "table": "source",
+    "record_count": "0",
+    "description": "Sources of data collected and stored by Access Missouri."
+  },
+  {
+    "table": "assembly",
+    "record_count": "11",
+    "description": "Collections of elected state legislators. Changes every two years. House members are elected for one assembly and Senate members are elected for two. Records begin in 1995 and end in 2015. "
+  },
+  {
+    "table": "session_type",
+    "record_count": "2",
+    "description": "Either \"Regular\" or \"Extraordinary\"."
+  },
+  {
+    "table": "session",
+    "record_count": "32",
+    "description": "Period of legislative activity. A regular session is held every year."
+  },
+  {
+    "table": "chamber",
+    "record_count": "2",
+    "description": "Either \"Senate\" or \"House\"."
+  },
+  {
+    "table": "source_doc",
+    "record_count": "81623",
+    "description": "URLs and file names (with paths) to documents from which Access Missouri data was extracted. Records are unique by URL, parent_id and file_name."
+  },
+  {
+    "table": "person",
+    "record_count": "2823",
+    "description": "Full parsed names of (what should be) unique persons who have been legislative candidates or members. These are based on SoS election results. Records are unique by first_name, middle_name, last_name and name_suffix."
+  },
+  {
+    "table": "person_name",
+    "record_count": "3148",
+    "description": "Any combination of first_name, middle_name, last_name and name_suffix found among the race candidate records, as well as the distinct person to which the name most likely belongs."
+  },
+  {
+    "table": "election_type",
+    "record_count": "3",
+    "description": "Either \"General\", \"Special\" or \"Primary\"."
+  },
+  {
+    "table": "election",
+    "record_count": "74",
+    "description": "Dates of state legislative elections held in Missouri from 1996 to 2014."
+  },
+  {
+    "table": "race_type",
+    "record_count": "17",
+    "description": "The office for which candidates are running in a given race. Also includes \"Constitutional Amendment\" and \"Proposition\"."
+  },
+  {
+    "table": "race",
+    "record_count": "5188",
+    "description": "Combinations of elections, race types and districts for which candidates are running. Includes the number of precincts voting in each race and the total number of votes cast in each race."
+  },
+  {
+    "table": "race_candidate",
+    "record_count": "8542",
+    "description": "Combinations of persons and the races in which they have run."
+  },
+  {
+    "table": "assembly_member",
+    "record_count": "2237",
+    "description": "Each person elected to each assembly. These records are created from winning candidates in races (i.e., race candidate records with rank = 1). Records are unique on race_id and person_id."
+  },
+  {
+    "table": "member_session_profile",
+    "record_count": "4077",
+    "description": "Lawmaker profiles for each session from the House and Senate Clerk websites."
+  },
+  {
+    "table": "district_vacancy",
+    "record_count": "17",
+    "description": "Districts in given chambers that were vacant at the close of given sessions. Collected from House and Senate clerk member rosters. Records are unique on session_id, chamber_id and district."
+  },
+  {
+    "table": "committee",
+    "record_count": "0",
+    "description": ""
+  },
+  {
+    "table": "committee_member",
+    "record_count": "0",
+    "description": ""
+  },
+  {
+    "table": "bill_type",
+    "record_count": "14",
+    "description": "Prefixes of bills indicating their type and chamber."
+  },
+  {
+    "table": "bill",
+    "record_count": "37558",
+    "description": "Each bill introduced in the Missouri legislature between 1995 and 2014. Records are unique by session_id, bill_type_id and number."
+  },
+  {
+    "table": "bill_summary",
+    "record_count": "0",
+    "description": ""
+  },
+  {
+    "table": "bill_text",
+    "record_count": "0",
+    "description": ""
+  },
+  {
+    "table": "bill_topic",
+    "record_count": "0",
+    "description": ""
+  },
+  {
+    "table": "bill_sponsor",
+    "record_count": "55999",
+    "description": "Assembly members signed on in support of a given bill. Records are unique by bill_id and assembly_member_id."
+  },
+  {
+    "table": "bill_action",
+    "record_count": "305610",
+    "description": "Dates and descriptions of legislative actions on bills. If the action includes a vote, the number of legislators voting Aye, No and Present are included. Records are unique by bill_id, action_date and description."
+  },
+  {
+    "table": "bill_action_journal_page",
+    "record_count": "225769",
+    "description": "Where available, the link to the legislative journal pdf file and the page numbers of the file in which the bill action is described."
+  },
+  {
+    "table": "formal_name",
+    "record_count": "544",
+    "description": "Formal Names that have diminutive versions."
+  },
+  {
+    "table": "diminutive_name",
+    "record_count": "1096",
+    "description": "Diminutive versions of formal names."
+  },
+  {
+    "table": "party",
+    "record_count": "12",
+    "description": "Missouri political parties."
+  }
+]
