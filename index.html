@@ -12,9 +12,10 @@
 
 	<div id="table-listing">
 		<h2>Tables</h2>
+		<p><em>Note: Tables only shown if records > 0.</em></p>
 		<table class="table table-bordered table-striped" id="table-table" ng-controller="TableController">
 			<thead><tr><td>Table Name</td><td>Number of Records</td><td>Table Description</td></tr></thead>
-			<tr ng-repeat="table in tables"><td>{{table.table}}</td><td>{{table.record_count}}</td><td>{{table.description}}</td></tr>
+			<tr ng-repeat="table in tables" ng-show="table.record_count > 0"><td>{{table.table}}</td><td>{{table.record_count}}</td><td>{{table.description}}</td></tr>
 		</table>
 	</div>
 
